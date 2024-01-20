@@ -2,6 +2,4 @@
 
 require('functions.php');
 
-$heading = "Home Page";
-
-require('views/index.view.php');
+require('router.php');

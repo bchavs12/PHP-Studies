@@ -2,6 +2,13 @@
 // Parsing of the URI Declaration
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
+/**
+ * - HardCode Mode
+ * if ($uri === '/') {
+ *  require 'controllers/index.php'
+ * }
+ */
+
 // Declaration of routes system
 $routes = [
     '/' => 'controllers/index.php',
@@ -28,5 +35,6 @@ function abort($code = 404)
 
     die();
 }
+
 
 routeToController($uri, $routes);

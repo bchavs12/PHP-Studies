@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Dev Tool to debug the application
+ */
 function dd($value)
 {
     echo "<pre>";
@@ -9,25 +12,10 @@ function dd($value)
     die();
 }
 
+/**
+ * This function is being used to conditionally display the tab style according to the URI(PATH) in the navbar;
+ */
 function urlIs($value)
 {
     return $_SERVER['REQUEST_URI'] === "$value";
-}
-
-function routeToController($uri, $routes)
-{
-    if (array_key_exists($uri, $routes)) {
-        require $routes[$uri];
-    } else {
-        abort();
-    }
-}
-
-function abort($code = 404)
-{
-    http_response_code($code);
-
-    require "views/{$code}.php";
-
-    die();
 }

@@ -2,6 +2,7 @@
 class Database
 {
   public $connection;
+  public $statement;
 
   public function __construct($config, $username = 'root', $password = '')
   {
@@ -12,11 +13,49 @@ class Database
     ]);
   }
 
+  /**
+   * This section has specifics own system Function
+   */
+
+  /**
+   * Prepare, execute and return a database class to be fetch through systemFunctions
+   */
   public function query($query, $params = [])
   {
-    $statement = $this->connection->prepare($query);
-    $statement->execute($params);
+    $this->statement = $this->connection->prepare($query);
+    $this->statement->execute($params);
 
-    return $statement;
+    return $this;
+  }
+
+  /**
+   * FetchAll data from the statement that was require in the queryFunction and return 
+   */
+  public function findAll()
+  {
+    return $this->statement->fetchAll();
+  }
+
+  /**
+   * Fetch the statement that was require in the queryFunction and return 
+   */
+  public function find()
+  {
+    return $this->statement->fetch();
+  }
+
+  /**
+   * Fetch the statement that was require in the query
+   * With a handlerError if the database was not found.
+   */
+  public function findOrFail()
+  {
+    $result = $this->find();
+
+    if (!$result) {
+      abort();
+    }
+
+    return $result;
   }
 }

@@ -1,9 +1,5 @@
 <?php
-$config = require('config.php');
-
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-$routes = $config['routes'];
+$routes = require('routes.php');
 
 function routeToController($uri, $routes)
 {
@@ -13,5 +9,7 @@ function routeToController($uri, $routes)
         abort();
     }
 }
+
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 routeToController($uri, $routes);

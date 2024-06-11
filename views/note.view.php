@@ -5,15 +5,14 @@
 <main>
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
     <span class="text-fuchsia-800 font-bold text-lg">
-      💭 Note:
+      Current Note:
     </span>
-    <p class="text-lg">
-      <?= $note['body'] ?>
+    <p class="text-lg ml-2">
+      -> <?= $note['body'] ?>
     </p>
     <p class="mt-6">
       <a href="/notes" class="text-blue-500 underline underline-offset-4">
-        Go back to the notes...
-      </a>
+        <- Go back to my notes... </a>
     </p>
   </div>
 </main>

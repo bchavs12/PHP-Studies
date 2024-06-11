@@ -7,15 +7,15 @@
     <ul>
       <?php foreach ($notes as $note) : ?>
         <li>
-          <a href="/note?id=<?= $note['id'] ?>" class="text-blue-500 hover:underline hover:underline-offset-2">
-            <?= $note['body'] ?>
+          <a href="/note?id=<?= $note['id'] ?>" class="text-black-500 hover:underline hover:underline-offset-2 hover:text-blue-500">
+            📝 - <?= $note['body'] ?>
           </a>
         </li>
       <?php endforeach ?>
     </ul>
     <div class="mt-6">
-      <a href="/notes/create" class="text-blue-500 hover:underline">
-        Create a note
+      <a href="/notes/create" type="submit" class="inline-flex justify-center  text-blue-500 hover:underline hover:underline-offset-2">
+        ✏ Create a note
       </a>
     </div>
   </div>

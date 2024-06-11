@@ -8,7 +8,7 @@
       Current Note:
     </span>
     <p class="text-lg ml-2">
-      -> <?= $note['body'] ?>
+      <?= '-> ' . htmlspecialchars($note['body']) ?>
     </p>
     <p class="mt-6">
       <a href="/notes" class="text-blue-500 underline underline-offset-4">

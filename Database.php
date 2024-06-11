@@ -14,11 +14,11 @@ class Database
   }
 
   /**
-   * This section has specifics own system Function
+   * This section has specifics own databse class methods
    */
 
   /**
-   * Prepare, execute and return a database class to be fetch through systemFunctions
+   * Prepare, execute and return a database class to be fetch through it methods
    */
   public function query($query, $params = [])
   {

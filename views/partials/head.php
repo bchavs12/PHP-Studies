@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Notes</title>
+    <title>NotesApp</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 </head>
 

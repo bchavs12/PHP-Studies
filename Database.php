@@ -18,7 +18,7 @@ class Database
    */
 
   /**
-   * Prepare, execute and return a database class to be fetch through it methods
+   * Prepare, execute and return a database class to be fetch throughout the database methods
    */
   public function query($query, $params = [])
   {

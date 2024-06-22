@@ -14,7 +14,7 @@ class Database
   }
 
   /**
-   * This section has specifics own databse class methods
+   * This section has specifics database class methods
    */
 
   /**

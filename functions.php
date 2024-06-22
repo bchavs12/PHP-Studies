@@ -41,3 +41,21 @@ function authorize($condition, $status = Response::FORBIDDEN)
         abort($status);
     }
 }
+
+/**
+ * the root directory of the system 
+ */
+function base_path($path)
+{
+    return BASE_PATH . $path;
+}
+
+/**
+ * Simplifying they way of required the views directory
+ * extract() -> para cada par chave/valor ela cria uma variável na atual contexto
+ */
+function view($path, $attributes = [])
+{
+    extract($attributes);
+    require base_path("views/{$path}", $attributes);
+}

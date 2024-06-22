@@ -1,12 +1,12 @@
 <?php
-require 'Validator.php';
-$config = require 'config.php';
+require base_path('Validator.php');
+
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
-$heading = "Create note";
+$userFeedback = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
   $validationResult = Validator::string($_POST['body'], 5, 500);
 
   if ($validationResult  === true) {
@@ -14,11 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'body' => $_POST['body'],
       'user_id' => 1
     ]);
-    header('Location: /notes');
-    exit();
+    $userFeedback['sucess'] = "A new note was created, back to <a href='/notes' class='text-black-500 font-bold underline hover:underline-offset-2 text-blue-500'>My Notes</a> and check it out!";
   } else {
-    $errorMessage = $validationResult;
+    $userFeedback['error'] = $validationResult;
   }
 }
 
-require 'views/notes/create.view.php';
+view("notes/create.view.php", [
+  'heading' => 'Create Note',
+  'userFeedback' => $userFeedback
+]);

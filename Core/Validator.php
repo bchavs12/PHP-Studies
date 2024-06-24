@@ -7,7 +7,7 @@ class Validator
   {
     $trimedValue = trim($value);
 
-    if (strlen($trimedValue) < $min) {
+    if (strlen($trimedValue) <= $min) {
       return "The body must be more than {$min} characters.";
     } elseif (strlen($trimedValue) >= $max) {
       return "The body can not be more than {$max} characters.";

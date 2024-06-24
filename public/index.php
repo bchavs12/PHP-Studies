@@ -1,13 +1,14 @@
 <?php
 const BASE_PATH = __DIR__ . '/../';
 
-require BASE_PATH . 'functions.php';
-
-// SPL (Standard PHP Library) -> é usada para registrar uma função de carregamento automático de classes 
-// to make a file lazy load, until it's not required.
+require BASE_PATH . 'Core/functions.php';
 
 spl_autoload_register(function ($class) {
-  require base_path("Core/{$class}.php");
+  // Core\Database replace to "/";
+
+  $class = str_replace("\\", "/", $class);
+
+  require base_path("{$class}.php");
 });
 
-require base_path('router.php');
+require base_path('Core/router.php');

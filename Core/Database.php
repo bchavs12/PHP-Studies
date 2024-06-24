@@ -1,4 +1,9 @@
 <?php
+
+namespace Core;
+
+use PDO;
+
 class Database
 {
   public $connection;
@@ -13,13 +18,6 @@ class Database
     ]);
   }
 
-  /**
-   * This section has specifics database class methods
-   */
-
-  /**
-   * Prepare, execute and return a database class to be fetch throughout the database methods
-   */
   public function query($query, $params = [])
   {
     $this->statement = $this->connection->prepare($query);
@@ -28,26 +26,16 @@ class Database
     return $this;
   }
 
-  /**
-   * FetchAll data from the statement that was require in the queryFunction and return 
-   */
   public function findAll()
   {
     return $this->statement->fetchAll();
   }
 
-  /**
-   * Fetch the statement that was require in the queryFunction and return 
-   */
   public function find()
   {
     return $this->statement->fetch();
   }
 
-  /**
-   * Fetch the statement that was require in the query
-   * With a handlerError if the database was not found.
-   */
   public function findOrFail()
   {
     $result = $this->find();

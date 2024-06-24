@@ -1,9 +1,7 @@
 <?php
 
-/**
- * Magic Numbers:
- * A unique value with unexplained meaning or multiple occurrences which could (preferably) be replaced with a named constant.
- */
+namespace Core;
+
 class Response
 {
   const NOT_FOUND = 404;

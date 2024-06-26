@@ -45,7 +45,6 @@ function base_path($path)
 
 /**
  * Simplifying they way of required the views directory
- * extract() -> para cada par chave/valor ela cria uma variável na atual contexto
  */
 function view($path, $attributes = [])
 {

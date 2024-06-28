@@ -15,7 +15,7 @@
       <?= '-> ' . htmlspecialchars($note['body']) ?>
     </p>
 
-    <form method="post" class="mt-6">
+    <form method="POST" class="mt-6">
       <input type="hidden" name="id" value="<?= $note['id'] ?>">
       <button type="submit" class="text-sm font-medium text-gray-900 rounded-md hover:text-red-700">
         Delete Note

@@ -13,9 +13,9 @@ class Validator
       return "The body must be more than {$min} characters.";
     } elseif (strlen($trimedValue) >= $max) {
       return "The body can not be more than {$max} characters.";
+    } else {
+      strlen($trimedValue) >= $min && strlen($trimedValue) <= $max;
     }
-
-    return strlen($trimedValue) >= $min && strlen($trimedValue) <= $max;
   }
 
   public static function email($value)
